@@ -34,9 +34,7 @@ class Notebook:
             with open(self.path, encoding='UTF-8') as file:
                 file_reader = csv.reader(file, delimiter=':')
                 for row in file_reader:
-                    stt = row[3]
-                    print(row)
-                    date_time_obj = datetime.datetime.strptime(stt, '%Y-%m-%d %H:%M:%S')
+                    date_time_obj = datetime.datetime.strptime(row[3], '%Y-%m-%d %H:%M:%S')
                     if len(row) == 5:
                         _, name, comment, data_time, change_data = \
                             row[0], row[1], row[2], date_time_obj, row[4]
